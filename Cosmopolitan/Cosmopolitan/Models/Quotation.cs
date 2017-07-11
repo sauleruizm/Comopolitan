@@ -7,6 +7,8 @@ namespace Cosmopolitan.Models
 {
     public class Quotation
     {
+        private const string PROMOTORA_Y_PROYECTO = "COSMOPOLITAN TOWERS";
+
         /// <summary>
         /// Representa la fecha en que se realiza la cotización
         /// </summary>
@@ -22,9 +24,9 @@ namespace Cosmopolitan.Models
         /// </summary>
         public Borrowing Borrow { get; set; }
 
-        public string Promotor { get; set; }
+        public string Promotor { get; set; } = PROMOTORA_Y_PROYECTO;
 
-        public string Proyecto { get; set; }
+        public string Proyecto { get; set; } = PROMOTORA_Y_PROYECTO;
 
         /// <summary>
         /// Precio del inmueble 
@@ -53,11 +55,17 @@ namespace Cosmopolitan.Models
         [Display(Name = "Tasa de Interés")]
         public decimal TaseDeInteres { get; set; }
 
+        /// <summary>
+        /// Es el equivalente del porcentaje en dinero.
+        /// </summary>
+        [Display(Name = "Tasa de Interés")]
+        public decimal TaseDeInteresMonto { get; set; } = 0;
+
         [Display(Name = "Comosión de Cierre")]
         public decimal ComisionDeCierre { get; set; }
 
         [Display(Name = "Bono Gastos Legales")]
-        public decimal BonoGastosLegales { get; set; }
+        public decimal BonoGastosLegales { get; set; } = 100;
 
         [Display(Name = "Total de Gastos Legales")]
         public decimal BonoTotalGastosLegales { get; set; }
@@ -66,10 +74,10 @@ namespace Cosmopolitan.Models
         public bool BancoHaceEscritura { get; set; }
 
         [Display(Name = "Seguro de Vida")]
-        public bool SeguroDeVida { get; set; }
+        public bool SeguroDeVida { get; set; } = true;
 
         [Display(Name = "Seguro de Incendio")]
-        public bool SeguroDeIncendio { get; set; }
+        public bool SeguroDeIncendio { get; set; } = true;
 
         [Display(Name = "FECI")]
         public bool Feci { get; set; }
@@ -98,5 +106,8 @@ namespace Cosmopolitan.Models
         /// Lista de participantes para el préstamo hipotecario
         /// </summary>
         public BasicField<Participant> Participantes { get; set; }
+
+        [Display(Name ="Empleado GB")]
+        public bool IsEmployee { get; set; } = false;
     }
 }

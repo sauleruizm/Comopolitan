@@ -58,6 +58,11 @@ namespace Cosmopolitan.Controllers
             };
         }
 
+        /// <summary>
+        /// Carga los valores por defecto de los campos
+        /// del préstamo.
+        /// </summary>
+        /// <returns></returns>
         private Borrowing LoadBorrowing()
         {
             return new Borrowing {
@@ -81,7 +86,8 @@ namespace Cosmopolitan.Controllers
                 {
                     Name ="Tramite", Collection = new List<SelectListItem>
                     {
-                        new SelectListItem { Text="Residencial", Value ="Residencial"}
+                        new SelectListItem { Text="Residencial", Value ="Residencial"},
+                        new SelectListItem { Text="Reposeído (BG)", Value ="Reposeído (BG)"}
                     }
                 },
                 Antiguedad = new BasicField<string>
@@ -89,7 +95,8 @@ namespace Cosmopolitan.Controllers
                     Name = "Antiguedad",
                     Collection = new List<SelectListItem>
                     {
-                        new SelectListItem { Text="Nueva", Value ="Nueva"}
+                        new SelectListItem { Text="Nueva", Value ="Nueva"},
+                        new SelectListItem { Text="Usada", Value ="Usada"}
                     }
                 },
                 Garantia = new BasicField<string>
