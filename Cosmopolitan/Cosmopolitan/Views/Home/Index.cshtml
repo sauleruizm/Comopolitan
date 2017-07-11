@@ -1,6 +1,6 @@
 ﻿@model  Cosmopolitan.Models.Quotation
 @{
-    
+
     ViewData["Title"] = "Cotizador";
 
 }
@@ -8,28 +8,84 @@
 <div class="panel panel-primary">
     <div class="panel-heading text-center">Cotización de Préstamo Hipotecario</div>
     <div class="panel-body">
-        <div class="form-group">
-            @Html.LabelFor(m=> m.Fecha)
-            @Html.TextBoxFor(m=> m.Fecha,  new { @class="form-control", @disabled="true"})
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Programa)
-            @Html.DropDownListFor(m => m.Programa.Name, 
-                Model.Programa != null ? Model.Programa.Collection ?? new List<SelectListItem>() : new List<SelectListItem>(), 
-                new { @class = "form-control" })
-        </div>
-        <p class="bg-primary text-center">Datos de la Propiedad</p>
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Fecha, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Fecha, new { @class = "form-control", @disabled = "true" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Programa, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Programa.Name,
+                        Model.Programa != null ? Model.Programa.Collection ?? new List<SelectListItem>() :
+                            new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <p class="bg-primary text-center">Datos de la Propiedad</p>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Borrow.Finalidad,
+                        Model.Borrow != null ? Model.Borrow.Finalidad.Collection ?? new List<SelectListItem>() : 
+                        new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Borrow.Finalidad,
+                        Model.Borrow != null ? Model.Borrow.Finalidad.Collection ?? new List<SelectListItem>() :
+                        new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Borrow.Tipo,
+                        Model.Borrow != null ? Model.Borrow.Tipo.Collection ?? new List<SelectListItem>() :
+                        new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Borrow.Tramite,
+                        Model.Borrow != null ? Model.Borrow.Tramite.Collection ?? new List<SelectListItem>() :
+                        new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Borrow.Antiguedad, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Borrow.Antiguedad,
+                        Model.Borrow != null ? Model.Borrow.Antiguedad.Collection ?? new List<SelectListItem>() :
+                        new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Borrow.Garantia, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Borrow.Garantia,
+                        Model.Borrow != null ? Model.Borrow.Garantia.Collection ?? new List<SelectListItem>() :
+                        new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.f)
-            @Html.DropDownListFor(m => m.Programa.Name,
-                Model.Programa != null ? Model.Programa.Collection ?? new List<SelectListItem>() : new List<SelectListItem>(),
-                new { @class = "form-control" })
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> Check me out
-            </label>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Proyecto, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.LabelFor(m => m.Proyecto, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Promotor, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.LabelFor(m => m.Promotor, new { @class = "form-control" })
+                </div>
+            </div>
         </div>
     </div>
 </div>

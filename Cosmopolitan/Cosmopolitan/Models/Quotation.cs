@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cosmopolitan.Models
 {
@@ -28,44 +29,64 @@ namespace Cosmopolitan.Models
         /// <summary>
         /// Precio del inmueble 
         /// </summary>
+        [Display(Name = "Precio de Venta/Valor de la Propiedad")]
         public decimal PrecioDeVenta { get; set; }
 
         /// <summary>
         /// Valor en porcentaje
         /// </summary>
+        [Display(Name = "% Financiamiento")]
         public decimal Financiamiento { get; set; }
 
+        [Display(Name = "Bono Inicial Calculado")]
+        public decimal AbonoInicialCalculado { get; set; }
+
+        [Display(Name = "Bono Inicial Ingresado")]
         public decimal AbonoInicial { get; set; }
 
+        [Display(Name = "Monto a Financiar")]
         public decimal MontoAFinanciar { get; set; }
 
         /// <summary>
         /// En porcentaje
         /// </summary>
+        [Display(Name = "Tasa de Interés")]
         public decimal TaseDeInteres { get; set; }
 
+        [Display(Name = "Comosión de Cierre")]
         public decimal ComisionDeCierre { get; set; }
 
+        [Display(Name = "Bono Gastos Legales")]
         public decimal BonoGastosLegales { get; set; }
 
+        [Display(Name = "Total de Gastos Legales")]
         public decimal BonoTotalGastosLegales { get; set; }
 
+        [Display(Name = "Banco Hace Escritura")]
         public bool BancoHaceEscritura { get; set; }
 
+        [Display(Name = "Seguro de Vida")]
         public bool SeguroDeVida { get; set; }
 
+        [Display(Name = "Seguro de Incendio")]
         public bool SeguroDeIncendio { get; set; }
+
+        [Display(Name = "FECI")]
+        public bool Feci { get; set; }
 
         /// <summary>
         /// Plazo en periodo de años por defecto 30 años
         /// </summary>
+        [Display(Name = "Plazo")]
         public decimal Plazo { get; set; } = 30;
 
+        [Display(Name = "Comisión de Manejo")]
         public decimal ComisionDeManejo { get; set; }
 
         /// <summary>
         /// Contiene el capital más el interés
         /// </summary>
+        [Display(Name = "Capital + Interés")]
         public decimal Capital { get; set; }
 
         /// <summary>

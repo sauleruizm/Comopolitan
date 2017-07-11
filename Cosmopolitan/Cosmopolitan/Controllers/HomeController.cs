@@ -65,10 +65,45 @@ namespace Cosmopolitan.Controllers
                 {
                     Name= "Fidelidad", Collection = new List<SelectListItem>
                     {
-                        new SelectListItem { Text=""}
+                        new SelectListItem { Text="Compra de Vivienda", Value ="Vivienda"},
+                        new SelectListItem { Text="Compra de Vivienda Vacacional", Value ="Vacacional"}
+                    }
+                },
+                Tipo = new BasicField<string>
+                {
+                    Name ="Tipo", Collection = new List<SelectListItem>
+                    {
+                        new SelectListItem { Text="Compra de Vivienda", Value ="Vivienda"},
+                        new SelectListItem { Text="Compra de Vivienda Vacacional", Value ="Vacacional"}
+                    }
+                },
+                Tramite = new BasicField<string>
+                {
+                    Name ="Tramite", Collection = new List<SelectListItem>
+                    {
+                        new SelectListItem { Text="Residencial", Value ="Residencial"}
+                    }
+                },
+                Antiguedad = new BasicField<string>
+                {
+                    Name = "Antiguedad",
+                    Collection = new List<SelectListItem>
+                    {
+                        new SelectListItem { Text="Nueva", Value ="Nueva"}
+                    }
+                },
+                Garantia = new BasicField<string>
+                {
+                    Name = "Garantia",
+                    Collection = new List<SelectListItem>
+                    {
+                        new SelectListItem { Text="Apartamento", Value ="Apartamento"},
+                        new SelectListItem { Text="Casa", Value ="Casa"},
+                        new SelectListItem { Text="Unidad de Vivienda", Value ="UnidadVivienda"}
                     }
                 }
             };
         }
+
     }
 }
