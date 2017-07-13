@@ -25,80 +25,80 @@
             </div>
             <p class="bg-primary text-center">Datos de la Propiedad</p>
             <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.DropDownListFor(m => m.Borrow.Finalidad,
                         Model.Borrow != null ? Model.Borrow.Finalidad.Collection ?? new List<SelectListItem>() :
                         new List<SelectListItem>(), new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.DropDownListFor(m => m.Borrow.Finalidad,
                         Model.Borrow != null ? Model.Borrow.Finalidad.Collection ?? new List<SelectListItem>() :
                         new List<SelectListItem>(), new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.DropDownListFor(m => m.Borrow.Tipo,
                         Model.Borrow != null ? Model.Borrow.Tipo.Collection ?? new List<SelectListItem>() :
                         new List<SelectListItem>(), new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.DropDownListFor(m => m.Borrow.Tramite,
                         Model.Borrow != null ? Model.Borrow.Tramite.Collection ?? new List<SelectListItem>() :
                         new List<SelectListItem>(), new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Antiguedad, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Borrow.Antiguedad, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.DropDownListFor(m => m.Borrow.Antiguedad,
                         Model.Borrow != null ? Model.Borrow.Antiguedad.Collection ?? new List<SelectListItem>() :
                         new List<SelectListItem>(), new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Garantia, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Borrow.Garantia, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.DropDownListFor(m => m.Borrow.Garantia,
                         Model.Borrow != null ? Model.Borrow.Garantia.Collection ?? new List<SelectListItem>() :
                         new List<SelectListItem>(), new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Proyecto, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Proyecto, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.Label("Proyecto", Model.Proyecto, new { @class = "control-label" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Promotor, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
+                @Html.LabelFor(m => m.Promotor, new { @class = "col-sm-4 control-label" })
+                <div class="col-sm-4">
                     @Html.Label("Promotor", Model.Promotor, new { @class = "control-label" })
                 </div>
             </div>
-            <p class="bg-primary text-center">Cálculo</p>
+            <p class="bg-primary text-center">Cálculo
+            <p class="text-center">Servicios Generales</p>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.PrecioDeVenta, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.PrecioDeVenta, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.TextBoxFor(m => m.PrecioDeVenta, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <h4>Servicios Generales</h4>
                     <div class="form-group">
-                        @Html.LabelFor(m => m.ComisionDeCierre, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.ComisionDeCierre, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.TextBoxFor(m => m.ComisionDeCierre, new { @class = "form-control" })
                         </div>
                     </div>
@@ -107,28 +107,16 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Financiamiento, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
-                            @Html.TextBoxFor(m => m.Financiamiento, new { @class = "form-control", @type="date" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.AbonoInicialCalculado, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
-                            @Html.TextBoxFor(m => m.AbonoInicialCalculado, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.AbonoInicial, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
-                            @Html.TextBoxFor(m => m.AbonoInicial, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Financiamiento, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.Financiamiento, new { @class = "form-control", @type = "date" })
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.BonoGastosLegales, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.BonoGastosLegales, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.TextBoxFor(m => m.BonoGastosLegales, new { @class = "form-control" })
                         </div>
                     </div>
@@ -137,22 +125,47 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.MontoAFinanciar, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
-                            @Html.TextBoxFor(m => m.MontoAFinanciar, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.AbonoInicialCalculado, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.AbonoInicialCalculado, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.BonoTotalGastosLegales, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.BonoTotalGastosLegales, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.TextBoxFor(m => m.BonoTotalGastosLegales, new { @class = "form-control" })
-                            <div class="checkbox">
-                                <label>
-                                    @Html.CheckBoxFor(m => m.IsEmployee)
-                                </label>
-                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AbonoInicial, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.AbonoInicial, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.IsEmployee, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
+                            @Html.CheckBox("IsEmployee", false)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MontoAFinanciar, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.MontoAFinanciar, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
@@ -160,17 +173,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.TaseDeInteres, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
-                            @Html.LabelFor(m => m.TaseDeInteres, new { @class = "form-control" })
-                            @Html.LabelFor(m => m.TaseDeInteresMonto, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.TasaDeInteres, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.TasaDeInteres, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.TasaDeInteresMonto, new { @class = "form-control" })
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.BancoHaceEscritura, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.BancoHaceEscritura, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.CheckBoxFor(m => m.BancoHaceEscritura)
                         </div>
                     </div>
@@ -179,14 +192,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.SeguroDeVida, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.SeguroDeVida, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.CheckBoxFor(m => m.SeguroDeVida)
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(m => m.SeguroDeIncendio, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.SeguroDeIncendio, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.CheckBoxFor(m => m.SeguroDeIncendio)
                         </div>
                     </div>
@@ -195,8 +208,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Feci, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.Feci, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.CheckBoxFor(m => m.Feci)
                         </div>
                     </div>
@@ -205,9 +218,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Plazo, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
-                            @Html.TextBoxFor(m => m.Plazo, new { @class="form-control"})
+                        @Html.LabelFor(m => m.Plazo, new { @class = "col-sm-5 control-label" }) <span class="control-label">años</span>
+                        <div class="col-sm-3">
+                            @Html.TextBoxFor(m => m.Plazo, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
@@ -215,8 +228,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.ComisionDeManejo, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.ComisionDeManejo, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.TextBoxFor(m => m.ComisionDeManejo, new { @class = "form-control" })
                         </div>
                     </div>
@@ -225,8 +238,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Capital, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
+                        @Html.LabelFor(m => m.Capital, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
                             @Html.TextBoxFor(m => m.Capital, new { @class = "form-control" })
                         </div>
                     </div>
@@ -235,9 +248,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Mensualidad, new { @class = "col-sm-3 control-label" })
-                        <div class="col-sm-9">
-                            @Html.TextBoxFor(m => m.Mensualidad, new { @class = "form-control", @disabled="disabled" })
+                        @Html.LabelFor(m => m.Mensualidad, new { @class = "col-sm-5 control-label" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.Mensualidad, new { @class = "form-control", @disabled = "disabled" })
                         </div>
                     </div>
                 </div>

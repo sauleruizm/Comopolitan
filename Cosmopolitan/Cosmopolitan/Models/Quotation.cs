@@ -40,10 +40,10 @@ namespace Cosmopolitan.Models
         [Display(Name = "% Financiamiento")]
         public decimal Financiamiento { get; set; }
 
-        [Display(Name = "Bono Inicial Calculado")]
+        [Display(Name = "Abono Inicial Calculado")]
         public decimal AbonoInicialCalculado { get; set; }
 
-        [Display(Name = "Bono Inicial Ingresado")]
+        [Display(Name = "Abono Inicial Ingresado")]
         public decimal AbonoInicial { get; set; }
 
         [Display(Name = "Monto a Financiar")]
@@ -53,15 +53,15 @@ namespace Cosmopolitan.Models
         /// En porcentaje
         /// </summary>
         [Display(Name = "Tasa de Interés")]
-        public decimal TaseDeInteres { get; set; }
+        public decimal TasaDeInteres { get; set; } = 4.50M;
 
         /// <summary>
         /// Es el equivalente del porcentaje en dinero.
         /// </summary>
         [Display(Name = "Tasa de Interés")]
-        public decimal TaseDeInteresMonto { get; set; } = 0;
+        public decimal TasaDeInteresMonto { get; set; } = 0M;
 
-        [Display(Name = "Comosión de Cierre")]
+        [Display(Name = "Comisión de Cierre")]
         public decimal ComisionDeCierre { get; set; }
 
         [Display(Name = "Bono Gastos Legales")]
