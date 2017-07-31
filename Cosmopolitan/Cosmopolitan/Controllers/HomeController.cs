@@ -13,19 +13,34 @@ namespace Cosmopolitan.Controllers
         public IActionResult Index()
         {
             Quotation model = new Quotation {
-                Programa = LoadProgram(),
-                Borrow = LoadBorrowing()
+               Financiamiento=90,
+               TaseDeInteres = 4.5,
+               Plazo =30
             };
             
 
             return View(model);
         }
 
-        public IActionResult About()
+        public IActionResult Calcular(Quotation viewModel)
         {
-            ViewData["Message"] = "Your application description page.";
+            const int FECI = 1;
 
-            return View();
+            //Cuando no se suministra bono inicial
+            if (viewModel.PrecioDeVenta>0 && viewModel.Financiamiento>0 && viewModel.AbonoInicialIngresado<=0)
+            {
+                viewModel.MontoAFinanciar = viewModel.PrecioDeVenta - (viewModel.PrecioDeVenta * (viewModel.Financiamiento / 100));
+                viewModel.MontoAFinanciar = 0;
+                //Cuando no tenga feci
+                double tasaCalculada = ((viewModel.TaseDeInteres) * 365 / 360) / 12;
+                int nper = viewModel.Plazo * 12;
+                viewModel.Capital = PMT(tasaCalculada, nper, viewModel.MontoAFinanciar);
+                //Cuando tenga feci
+                tasaCalculada = ((FECI + viewModel.TaseDeInteres) * 365 / 360) / 12;
+                viewModel.CapitalFeci = PMT(tasaCalculada, nper, viewModel.MontoAFinanciar);
+            }
+
+            return View(viewModel);
         }
 
         public IActionResult Contact()
@@ -40,70 +55,18 @@ namespace Cosmopolitan.Controllers
             return View();
         }
 
-
-        /// <summary>
-        /// Rellena información sobre qué programas 
-        /// se utilizan en la cotización
-        /// </summary>
-        /// <returns></returns>
-        private BasicField<string> LoadProgram()
+        /*
+         ir - interest rate per month
+         np - number of periods (months)
+         pv - present value
+         fv - future value (residual value)
+         type - 0 or 1 need to implement that
+         */
+        protected double PMT( double ir, int np, double pv, double fv = 0 )
         {
-            return new BasicField<string>
-            {
-                Collection = new List<SelectListItem> {
-                    new SelectListItem { Text = "BG", Value = "BG" },
-                    new SelectListItem { Text = "Feria", Value = "Feria", Selected = true },
-                    new SelectListItem { Text = "Otros", Value = "Otros" }
-                }
-            };
-        }
+            double pmt = (ir * (pv * Math.Pow((ir + 1), np) + fv)) / ((ir + 1) * (Math.Pow((ir + 1), np) - 1));
+            return pmt;
 
-        private Borrowing LoadBorrowing()
-        {
-            return new Borrowing {
-                Finalidad = new BasicField<string>
-                {
-                    Name= "Fidelidad", Collection = new List<SelectListItem>
-                    {
-                        new SelectListItem { Text="Compra de Vivienda", Value ="Vivienda"},
-                        new SelectListItem { Text="Compra de Vivienda Vacacional", Value ="Vacacional"}
-                    }
-                },
-                Tipo = new BasicField<string>
-                {
-                    Name ="Tipo", Collection = new List<SelectListItem>
-                    {
-                        new SelectListItem { Text="Compra de Vivienda", Value ="Vivienda"},
-                        new SelectListItem { Text="Compra de Vivienda Vacacional", Value ="Vacacional"}
-                    }
-                },
-                Tramite = new BasicField<string>
-                {
-                    Name ="Tramite", Collection = new List<SelectListItem>
-                    {
-                        new SelectListItem { Text="Residencial", Value ="Residencial"}
-                    }
-                },
-                Antiguedad = new BasicField<string>
-                {
-                    Name = "Antiguedad",
-                    Collection = new List<SelectListItem>
-                    {
-                        new SelectListItem { Text="Nueva", Value ="Nueva"}
-                    }
-                },
-                Garantia = new BasicField<string>
-                {
-                    Name = "Garantia",
-                    Collection = new List<SelectListItem>
-                    {
-                        new SelectListItem { Text="Apartamento", Value ="Apartamento"},
-                        new SelectListItem { Text="Casa", Value ="Casa"},
-                        new SelectListItem { Text="Unidad de Vivienda", Value ="UnidadVivienda"}
-                    }
-                }
-            };
         }
-
     }
 }

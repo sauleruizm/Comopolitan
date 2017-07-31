@@ -15,75 +15,121 @@
                     @Html.TextBoxFor(m => m.Fecha, new { @class = "form-control", @disabled = "true" })
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Programa, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Programa.Name,
-                        Model.Programa != null ? Model.Programa.Collection ?? new List<SelectListItem>() :
-                            new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <p class="bg-primary text-center">Datos de la Propiedad</p>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Borrow.Finalidad,
-                        Model.Borrow != null ? Model.Borrow.Finalidad.Collection ?? new List<SelectListItem>() : 
-                        new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Finalidad, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Borrow.Finalidad,
-                        Model.Borrow != null ? Model.Borrow.Finalidad.Collection ?? new List<SelectListItem>() :
-                        new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Borrow.Tipo,
-                        Model.Borrow != null ? Model.Borrow.Tipo.Collection ?? new List<SelectListItem>() :
-                        new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Tipo, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Borrow.Tramite,
-                        Model.Borrow != null ? Model.Borrow.Tramite.Collection ?? new List<SelectListItem>() :
-                        new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Antiguedad, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Borrow.Antiguedad,
-                        Model.Borrow != null ? Model.Borrow.Antiguedad.Collection ?? new List<SelectListItem>() :
-                        new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Borrow.Garantia, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Borrow.Garantia,
-                        Model.Borrow != null ? Model.Borrow.Garantia.Collection ?? new List<SelectListItem>() :
-                        new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
 
+            <p class="bg-primary text-center">Cálculo</p>
             <div class="form-group">
-                @Html.LabelFor(m => m.Proyecto, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.LabelFor(m => m.Proyecto, new { @class = "form-control" })
+                @Html.LabelFor(m => m.PrecioDeVenta, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.PrecioDeVenta, new { @class = "form-control", @data_bind = "value: PrecioDeVenta, event: { onchange: calcular }" })
+                    </div>
+                </div>
+            </div>           
+            <div class="form-group">
+                @Html.LabelFor(m => m.Financiamiento, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">%</div>
+                        @Html.TextBoxFor(m => m.Financiamiento, new { @class = "form-control", @data_bind = "value: Financiamiento; textInput: calcular" })
+                    </div>
                 </div>
             </div>
-
             <div class="form-group">
-                @Html.LabelFor(m => m.Promotor, new { @class = "col-sm-3 control-label" })
-                <div class="col-sm-9">
-                    @Html.LabelFor(m => m.Promotor, new { @class = "form-control" })
+                @Html.LabelFor(m => m.AbonoInicialCalculado, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.AbonoInicialCalculado, new { @class = "form-control", @disabled = "disabled",
+                       @data_bind = "value: AbonoInicialCalculado; textInput: calcular"
+                   })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.AbonoInicialIngresado, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.AbonoInicialIngresado, new { @class = "form-control", @data_bind = "value: AbonoInicialIngresado; textInput: calcular" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MontoAFinanciar, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.MontoAFinanciar, new { @class = "form-control", @disabled = "disabled", @data_bind = "value: MontoAFinanciar" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.TaseDeInteres, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">%</div>
+                        @Html.TextBoxFor(m => m.TaseDeInteres, new { @class = "form-control", @data_bind = "text: TaseDeInteres" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.TaseDeInteresDinero, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.TaseDeInteresDinero, new { @class = "form-control", @data_bind = "text: TaseDeInteresDinero" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Plazo, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">Años</div>
+                        @Html.TextBoxFor(m => m.Plazo, new { @class = "form-control", @data_bind = "text: Plazo" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Capital, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.Capital, new { @class = "form-control", @disabled = "disabled", @data_bind = "text: Capital" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.CapitalFeci, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.CapitalFeci, new { @class = "form-control", @disabled = "disabled", @data_bind = "text: CapitalFeci" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MensualidadConFeci, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.MensualidadConFeci, new { @class = "form-control", @disabled = "disabled", @data_bind = "text: MensualidadConFeci" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Mensualidad, new { @class = "col-sm-3 control-label" })
+                <div class="form-inline col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        @Html.TextBoxFor(m => m.Mensualidad, new { @class = "form-control", @disabled = "disabled", @data_bind = "text: Mensualidad" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3">
+                    <input type="button" class = "btn btn-primary"  value="Calcular" />
                 </div>
             </div>
         </div>
