@@ -7,6 +7,8 @@ namespace Cosmopolitan.Models
 {
     public class Quotation
     {
+        private const string PROMOTORA_Y_PROYECTO = "COSMOPOLITAN TOWERS";
+
         /// <summary>
         /// Representa la fecha en que se realiza la cotización
         /// </summary>

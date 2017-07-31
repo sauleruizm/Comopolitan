@@ -66,7 +66,3 @@ namespace Cosmopolitan.Controllers
         {
             double pmt = (ir * (pv * Math.Pow((ir + 1), np) + fv)) / ((ir + 1) * (Math.Pow((ir + 1), np) - 1));
             return pmt;
-
-        }
-    }
-}
